@@ -1,9 +1,6 @@
 from .settings_base import *
 
-from unipath import Path
 import dj_database_url
-
-BASE_DIR = Path(__file__).absolute().ancestor(3)
 
 STATIC_ROOT = BASE_DIR.child("staticfiles")
 

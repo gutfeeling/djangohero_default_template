@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 
 from django.core.exceptions import ImproperlyConfigured
+from unipath import Path
 
 def get_environment_variable(var_name):
     """ Get the environment variable or return exception """
@@ -22,8 +23,8 @@ def get_environment_variable(var_name):
         error_msg = "Set the %s environment variable" % var_name
         raise ImproperlyConfigured(error_msg)
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Build paths inside the project using Unipath
+BASE_DIR = Path(__file__).absolute().ancestor(3)
 
 
 # Quick-start development settings - unsuitable for production
